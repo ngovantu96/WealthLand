@@ -15,9 +15,7 @@ class CreateCategoryImagesTable extends Migration
     {
         Schema::create('category_images', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('image_id')->nullable();
-            $table->foreign('image_id')->references('id')->on('images');
-            $table->longtext('category_image');
+            $table->string('name');
             $table->timestamps();
         });
     }

@@ -2,7 +2,7 @@
 @section('page-title','Danh Sách Banner')
 @section('content')
     <div class="contaner ml-2">
-        <h1>Create Category</h1>
+        <h1>Chỉnh Sủa </h1>
     </div>
 
     <div class="container">
@@ -11,17 +11,17 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="form-group">
-                        <label for="title">Title</label>
+                        <label for="title">Tiêu Đề</label>
                         <input type="text" class="form-control" name="title" value="{{ $post->title }}" id="title" placeholder="Enter title">
                     </div>
 
                     <div class="form-group">
-                        <label for="image">Image</label>
+                        <label for="image">Hình Ảnh</label>
                         <input type="file" class="form-control" name="image" id="image" value="{{ $post->image }}" >
                     </div>
 
                     <div class="form-group">
-                        <label for="category-post">Category Post</label>
+                        <label for="category-post">Loại Bài Viết</label>
                         <select class="form-control" name="category_post">
 
                             @foreach($categoryPosts as $categoryPost)
@@ -31,7 +31,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="name">UserName</label>
+                        <label for="name">Người Viết Bài</label>
                         <select class="form-control" name="user" >
                             @foreach($users as $user)
                                 <option value="{{ $user->id }}"{{ ($user->name == $post->user->name) ? 'selected':'' }}>{{ $user->name }}</option>
@@ -41,12 +41,12 @@
                 </div>
                 <div class="col-12">
                     <div class="form-group">
-                        <label for="content">content</label>
+                        <label for="content">Nội Dung</label>
                         <textarea class="ckeditor" id="ckeditor" name="content">{!! $post->content !!}</textarea>
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="submit" class="btn btn-primary">Cập Nhật</button>
         </form>
     </div>
     </div>

@@ -11,12 +11,15 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="form-group">
-                        <label for="name">Name</label>
+                        <label for="name">Tên</label>
                         <input type="text" class="form-control" name="name" value="{{$user->name}}" placeholder="Enter Name">
+                        @error('name')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div class="form-group">
-                        <label for="category">Category</label>
+                        <label for="category">Chức Vụ</label>
                         <select class="form-control" name="role">
                             @foreach($roles as $role)
                                 <option value="{{ $role->id }}"{{ ($role->name==$user->role->name)?'selected' :''}}>{{ $role->name }}</option>
@@ -27,6 +30,9 @@
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" class="form-control" name="email" value="{{ $user->email }}" placeholder="Enter Email">
+                        @error('email')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
                     <button type="submit" class="btn btn-primary">Update</button>
                 </div>

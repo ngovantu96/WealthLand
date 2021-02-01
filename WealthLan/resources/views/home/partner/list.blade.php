@@ -2,23 +2,21 @@
 @section('page-title','Danh Sách Nguoi Dung')
 @section('content')
     <div class="contaner ml-2">
-        <h1>Partner List</h1>
+        <h1>Danh Sách Đối Tác</h1>
     </div>
 
-
     <a href="{{route('partner.create')}}" class="btn btn-primary" >
-        CREATE +
+        Thêm Mới +
     </a>
-
 
     <table class="table table-bordered">
         <thead>
         <tr>
             <th scope="col">STT</th>
-            <th scope="col">Name</th>
-            <th scope="col">Title</th>
-            <th scope="col">Description</th>
-            <th scope="col">Action</th>
+            <th scope="col">Tên</th>
+            <th scope="col">Tiêu Đề</th>
+            <th scope="col">Mô Tả</th>
+            <th scope="col">Hành Động</th>
         </tr>
         </thead>
         <tbody>
@@ -36,8 +34,6 @@
         @endforeach
         </tbody>
     </table>
-
-
 
 @endsection
 

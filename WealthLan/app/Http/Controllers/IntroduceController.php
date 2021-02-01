@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Repositories\IntroduceRepo\IntroduceRepositoryInterface;
+use App\Http\Requests\IntroduceRequest;
 use Illuminate\Http\Request;
 
 class IntroduceController extends Controller
@@ -19,7 +20,7 @@ class IntroduceController extends Controller
         return view('home.introduce.create');
     }
 
-    public function store(Request $request){
+    public function store(IntroduceRequest  $request){
         $this->introduceRepository->create($request);
         return  redirect()->route('introduce.list')->with('add','Add successful !!!');
     }
@@ -28,7 +29,7 @@ class IntroduceController extends Controller
         return view('home.introduce.edit',compact('introduce'));
     }
 
-    public function update(Request $request,$id){
+    public function update(IntroduceRequest $request,$id){
         $introduce = $this->introduceRepository->findById($id);
         $this->introduceRepository->update($request, $introduce);
         return  redirect()->route('introduce.list')->with('update','Update successful !!!');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Repositories\ImageRepo\ImageRepositoryInterface;
+use App\Http\Requests\ImageRequest;
 use Illuminate\Http\Request;
 use App\Models\Image;
 use Illuminate\Support\Facades\Storage;
@@ -22,7 +23,7 @@ class ImageController extends Controller
         return view('create');
     }
 
-    public function store(Request $request){
+    public function store(ImageRequest $request){
         $image = new Image();
         $images = Storage::disk('s3')->put('image',$request->image,'public');
         $image->image = $images;
@@ -35,7 +36,7 @@ class ImageController extends Controller
 //        return view('home.land.edit',compact('$introduce'));
 //    }
 //
-//    public function update(Request $request,$id){
+//    public function update(ImageRequest $request,$id){
 //        $introduce = $this->introduceRepository->findById($id);
 //        $this->introduceRepository->update($request, $introduce);
 //        return  redirect()->route('introduce.list')->with('update','Update successful !!!');

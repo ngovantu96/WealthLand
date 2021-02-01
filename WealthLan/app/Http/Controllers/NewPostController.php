@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CategoryPostRequest;
 use App\Models\NewPost;
 use Illuminate\Http\Request;
 
@@ -11,7 +12,7 @@ class NewPostController extends Controller
         $new_posts = NewPost::all();
         return view('home.categoryPost.list',compact('new_posts'));
     }
-    public function store(Request $request){
+    public function store(CategoryPostRequest $request){
         $new_post = new NewPost();
         $new_post->title = $request->title;
         $new_post->save();
@@ -22,7 +23,7 @@ class NewPostController extends Controller
 //        $new_post = NewPost::findOrFail($id);
 //        return view('home.new-post.list',compact('new_post'));
 //    }
-    public function update(Request $request,$id){
+    public function update(CategoryPostRequest $request,$id){
         $new_post = NewPost::findOrFail($id);
         $new_post->title = $request->title;
         $new_post->save();

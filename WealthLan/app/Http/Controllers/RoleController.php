@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RoleRequest;
 use App\Models\Role;
 use Illuminate\Http\Request;
 
@@ -11,7 +12,7 @@ class RoleController extends Controller
         $roles = Role::all();
         return view('home.role.list',compact('roles'));
     }
-    public function store(Request $request){
+    public function store(RoleRequest $request){
         $role = new Role();
         $role->name = $request->name;
         $role->save();
@@ -23,7 +24,7 @@ class RoleController extends Controller
         $role = Role::findOrFail($id);
         return view('home.role.list',compact('role'));
     }
-    public function update(Request $request, $id)
+    public function update(RoleRequest $request, $id)
     {
         $role = Role::findOrFail($id);
         $role->name = $request->name;

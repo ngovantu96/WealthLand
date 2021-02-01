@@ -2,7 +2,7 @@
 @section('page-title','Danh Sách Nguoi Dung')
 @section('content')
 <div class="contaner ml-2">
-    <h1>User List</h1>
+    <h1>Danh Sách</h1>
 </div>
 
 
@@ -15,9 +15,9 @@
     <thead>
         <tr>
           <th scope="col">STT</th>
-          <th scope="col">Name</th>
+          <th scope="col">Tên</th>
           <th scope="col">Email</th>
-          <th scope="col">Role</th>
+          <th scope="col">Chức vụ</th>
           <th scope="col">Action</th>
         </tr>
       </thead>

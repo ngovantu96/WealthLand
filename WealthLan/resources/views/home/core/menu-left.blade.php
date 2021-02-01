@@ -58,7 +58,7 @@
                 <li class="nav-item">
                     <a href="{{ route('new-post.list') }}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
-                        <p>Danh Sách Thể Loại Tin Tức</p>
+                        <p>Thể Loại Tin Tức</p>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -70,7 +70,7 @@
                 <li class="nav-item">
                     <a href="{{route('category.list')}}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
-                        <p>Danh Sách Thể Loại</p>
+                        <p>Loại Dự Án</p>
                     </a>
 
                 </li>

@@ -29,6 +29,19 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
 
+
+
+
+//web
+
+Route::get('wealthlan',function(){
+    return view('page.index');
+})->name('page.index');
+
+Route::get('wealthlan/contact',function(){
+    return view('page.contact');
+});
+
 Route::get('/', [HomeController::class,'index'])->name('admin');
 Route::get('/login', [LoginController::class,'login'])->name('login');
 Route::post('/login', [LoginController::class,'checkLogin'])->name('checklogin');

@@ -2,12 +2,12 @@
 @section('page-title','Danh Sách Nguoi Dung')
 @section('content')
     <div class="contaner ml-2">
-        <h1>Category Post</h1>
+        <h1>Thể Loại Bài viết </h1>
     </div>
 
 
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-        CREATE +
+        Thêm Mới +
     </button>
 
 
@@ -15,8 +15,8 @@
         <thead>
         <tr>
             <th scope="col">STT</th>
-            <th scope="col">Title</th>
-            <th scope="col">Action</th>
+            <th scope="col">Tiêu Đề</th>
+            <th scope="col">Hành Động</th>
         </tr>
         </thead>
         <tbody>
@@ -49,7 +49,7 @@
                                     <input type="text" class="form-control" name="title" value="{{ $new_post->title }}" >
                                 </div>
 
-                                <button type="submit" class="btn btn-primary">Update</button>
+                                <button type="submit" class="btn btn-primary">Cập nhật</button>
 
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
 
@@ -71,7 +71,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Create Role</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Thêm mới bài viết</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
                 </div>
                 <div class="modal-body">
@@ -79,13 +79,13 @@
                         @csrf
                         <div class="form-group">
                             <label for="title">Title</label>
-                            <input type="text" class="form-control" name="title" id="title" placeholder="Enter Title">
+                            <input type="text" class="form-control" name="title" id="title" placeholder="nhập tiêu đề">
                         </div>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary">Lưu</button>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
                 </div>
             </div>
         </div>

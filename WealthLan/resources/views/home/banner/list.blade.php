@@ -2,12 +2,12 @@
 @section('page-title','Danh Sách Banner')
 @section('content')
 <div class="contaner ml-2">
-    <h1>Banner List</h1>
+    <h1>Danh Sách Banner</h1>
 </div>
 
 
 <a type class="btn btn-primary" href="{{ route('banner.create')}}" >
-    CREATE +
+    Thêm Mới +
 </a>
 
 
@@ -15,9 +15,9 @@
     <thead>
         <tr>
           <th scope="col">STT</th>
-          <th scope="col">Title</th>
-          <th scope="col">Image</th>
-          <th scope="col">Action</th>
+          <th scope="col">Tiêu Đề</th>
+          <th scope="col">Hình Ảnh</th>
+          <th scope="col">Hành Động</th>
         </tr>
       </thead>
       <tbody>

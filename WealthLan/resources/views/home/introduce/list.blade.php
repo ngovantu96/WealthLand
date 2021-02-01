@@ -2,7 +2,7 @@
 @section('page-title','Danh Sách Nguoi Dung')
 @section('content')
     <div class="contaner ml-2">
-        <h1>Introduce List</h1>
+        <h1>Danh Sách Giới Thiệu</h1>
     </div>
 
 
@@ -15,11 +15,11 @@
         <thead>
         <tr>
             <th scope="col">STT</th>
-            <th scope="col">Title</th>
-            <th scope="col">Description</th>
-            <th scope="col">Content</th>
-            <th scope="col">Sologan</th>
-            <th scope="col">Action</th>
+            <th scope="col">Tiêu Đề</th>
+            <th scope="col">Mô tả</th>
+            <th scope="col">Nội Dung</th>
+            <th scope="col">Phương Châm</th>
+            <th scope="col">Hành Động</th>
         </tr>
         </thead>
         <tbody>

@@ -7,7 +7,7 @@
 
 
     <a href="{{ route('land.create') }}" class="btn btn-primary" >
-        CREATE +
+        Thêm Mới +
     </a>
 
 
@@ -15,12 +15,12 @@
         <thead>
         <tr>
             <th scope="col">STT</th>
-            <th scope="col">Name</th>
-            <th scope="col">Image</th>
-            <th scope="col">Category</th>
-            <th scope="col">title</th>
-            <th scope="col">UserName</th>
-            <th scope="col">status</th>
+            <th scope="col">Tên Dự Án</th>
+            <th scope="col">Hình Ảnh</th>
+            <th scope="col">Loại Dự Án</th>
+            <th scope="col">Tiêu Đề</th>
+            <th scope="col">Người phụ Trách</th>
+            <th scope="col">Trạng Thái</th>
             <th scope="col">Hot</th>
             <th scope="col">Action</th>
         </tr>

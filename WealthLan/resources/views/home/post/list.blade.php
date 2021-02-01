@@ -2,12 +2,12 @@
 @section('page-title','Danh Sách Nguoi Dung')
 @section('content')
     <div class="contaner ml-2">
-        <h1>Post List</h1>
+        <h1>Danh Sách Bài Viết</h1>
     </div>
 
 
     <a href="{{ route('post.create') }}" class="btn btn-primary" >
-        CREATE +
+        Thêm Mới +
     </a>
 
 
@@ -15,12 +15,12 @@
         <thead>
         <tr>
             <th scope="col">STT</th>
-            <th scope="col">User Name</th>
-            <th scope="col">Title</th>
-            <th scope="col">Image</th>
-            <th scope="col">Category Post</th>
-            <th scope="col">Status</th>
-            <th scope="col">Action</th>
+            <th scope="col">Người Viết Bài</th>
+            <th scope="col">Tiều Đề</th>
+            <th scope="col">Hình Ảnh</th>
+            <th scope="col">Loại Bài Viết</th>
+            <th scope="col">Trạng Thái</th>
+            <th scope="col">Hành Động</th>
 
         </tr>
         </thead>

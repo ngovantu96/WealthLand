@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PartnerRequest;
 use App\Models\Partner;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class PartnerController extends Controller
     public function create(){
         return view('home.partner.create');
     }
-    public function store(Request $request){
+    public function store(PartnerRequest $request){
         $partner = new Partner();
         $partner->name = $request->name;
         $partner->title = $request->title;
@@ -26,7 +27,7 @@ class PartnerController extends Controller
         $partner = Partner::findOrFail($id);
         return view('home.partner.edit',compact('partner'));
     }
-    public function update(Request $request,$id){
+    public function update(PartnerRequest $request,$id){
         $partner = Partner::findOrFail($id);
         $partner->name = $request->name;
         $partner->title = $request->title;

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Repositories\PostRepo\PostRepositoryInterface;
+use App\Http\Requests\PostRequest;
 use App\Models\NewPost;
 use App\Models\Post;
 use App\Models\User;
@@ -28,7 +29,7 @@ class PostController extends Controller
         $categoryPosts = NewPost::all();
         return view('home.post.create',compact('users','categoryPosts'));
     }
-    public function store(Request $request){
+    public function store(PostRequest $request){
         $this->postRepository->create($request);
         return redirect()->route('post.list')->with('add','add successful!!');
     }
@@ -39,7 +40,7 @@ class PostController extends Controller
 
         return view('home.post.edit',compact('post','users','categoryPosts'));
     }
-    public function update(Request $request,$id){
+    public function update(PostRequest $request,$id){
         $post = $this->postRepository->findById($id);
         $this->postRepository->update($request,$post);
         return redirect()->route('post.list')->with('add','add successful!!');

@@ -2,14 +2,14 @@
 @section('page-title','Danh Sách Nguoi Dung')
 @section('content')
     <div class="contaner ml-2">
-        <h1>User List</h1>
+        <h1>Danh sách Khách hàng</h1>
     </div>
 
     <table class="table table-bordered">
         <thead>
         <tr>
             <th scope="col">STT</th>
-            <th scope="col">Name</th>
+            <th scope="col">Tên</th>
             <th scope="col">Email</th>
             <th scope="col">Phone</th>
             <th scope="col">Comments</th>
