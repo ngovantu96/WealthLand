@@ -12,7 +12,7 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href="" class="nav-link active">
+                    <a href="{{ route('admin') }}" class="nav-link active">
                         <i class="nav-icon fas fa-th"></i>
                         <p>Dash board</p>
                     </a>
@@ -72,14 +72,24 @@
                         <i class="nav-icon fas fa-th"></i>
                         <p>Loại Dự Án</p>
                     </a>
-
                 </li>
                 <li class="nav-item">
                     <a href="{{route('partner.list')}}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>Danh Sách Đối Tác</p>
                     </a>
-
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('categoryImage.list')}}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>Danh Sách Loại Ảnh</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('image.list')}}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>Danh Sách Hình Ảnh</p>
+                    </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('logout') }}" class="nav-link" onclick="return confirm('Bạn muốn đăng xuất không')">

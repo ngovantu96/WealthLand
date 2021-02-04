@@ -5,6 +5,7 @@ use App\Http\Repositories\BaseRepository;
 use App\Models\Land;
 use App\Models\Category;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class LandRepository extends BaseRepository implements LandRepositoryInterface
@@ -68,6 +69,11 @@ class LandRepository extends BaseRepository implements LandRepositoryInterface
         $obj->address = $request->address;
 
         $obj->save();
+    }
+    public function getHot()
+    {
+        $lands = DB::table('lands')->where('hot','=','1')->get();
+        return $lands;
     }
 
 }

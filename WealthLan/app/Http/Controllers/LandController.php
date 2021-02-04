@@ -31,10 +31,11 @@ class LandController extends Controller
         return view('home.land.create',compact('categories','users'));
     }
 
-    public function store(LandRequest $request){
+    public function store(Request $request){
         $this->landRepository->create($request);
         return  redirect()->route('land.list')->with('add','Add successful !!!');
     }
+
     public function edit($id){
         $land = $this->landRepository->findById($id);
         $categories = Category::all();
@@ -42,7 +43,7 @@ class LandController extends Controller
         return view('home.land.edit',compact('land','categories','users'));
     }
 
-    public function update(LandRequest $request,$id){
+    public function update(Request $request,$id){
         $land = $this->landRepository->findById($id);
         $this->landRepository->update($request, $land);
         return  redirect()->route('land.list')->with('update','Update successful !!!');
@@ -54,4 +55,6 @@ class LandController extends Controller
         $this->landRepository->delete($id);
         return redirect()->route('land.list')->with('delete','delete successful !!!');
     }
+
+
 }

@@ -14,12 +14,12 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="intro-img">
-                    <img src="img/card-visit.jpg" alt="">
+                    <img src="{{ asset('font_end/img/card-visit.jpg') }}" alt="">
                 </div>
             </div>
             <div class="col-lg-6 text-decription text-center">
-                <div class="title-section"><h2>WEALTH LAND</h2></div>
-                <div class="text-custom">
+                <div class="title-section mt-2"><h2>WEALTH LAND</h2></div>
+                <div class="text-custom mt-4">
                     <div class="text-4 officer-title text-medium">
                         WEALTH LAND Văn phòng Công ty cổ phần đầu tư bất động sản WEALTH LAND</div>
                     <div class="office-detail">
@@ -53,7 +53,8 @@
                 <div class="media-container">
                     <div class="row form-contact">
                         <div class="col-lg-6">
-                            <form action="" id="contact-form" class="contact-form">
+                            <form action="{{ route('contact.create') }}" method="post" id="contact-form" class="contact-form">
+                                @csrf
                                 <input type="text" class="field" placeholder="Vui lòng nhập họ tên"/>
                                 <input type="text" class="field" placeholder="Số điện thoại"/>
                                 <input type="text" class="field" placeholder="Email"/>

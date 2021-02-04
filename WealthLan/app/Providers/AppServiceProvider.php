@@ -8,6 +8,8 @@ use App\Http\Repositories\BannerRepo\BannerRepository;
 use App\Http\Repositories\CategoryRepo\CategoryRepositoryInterface;
 use App\Http\Repositories\CategoryRepo\CategoryRepository;
 
+use App\Http\Repositories\ImageRepo\ImageRepository;
+use App\Http\Repositories\ImageRepo\ImageRepositoryInterface;
 use App\Http\Repositories\IntroduceRepo\IntroduceRepositoryInterface;
 use App\Http\Repositories\IntroduceRepo\IntroduceRepository;
 
@@ -38,6 +40,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(IntroduceRepositoryInterface::class, IntroduceRepository::class);
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
         $this->app->bind(PostRepositoryInterface::class, PostRepository::class);
+        $this->app->bind(ImageRepositoryInterface::class, ImageRepository::class);
+
     }
 
     /**

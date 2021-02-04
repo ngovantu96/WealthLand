@@ -29,4 +29,9 @@ class IntroduceRepository extends BaseRepository implements IntroduceRepositoryI
 
         $obj->save();
     }
+
+    public function generalIntroduce(){
+        $introduce = Introduction::where('title', '=', 'Giới Thiệu Chung')->get();
+        return $introduce;
+    }
 }

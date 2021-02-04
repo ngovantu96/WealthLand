@@ -16,6 +16,10 @@ class IntroduceController extends Controller
         $introduces = $this->introduceRepository->getAll();
         return view('home.introduce.list',compact('introduces'));
     }
+    public function generalIntroduce(){
+        $introduces = $this->introduceRepository->generalIntroduce();
+        return view('page.introduce',compact('introduces'));
+    }
     public function formCreate(){
         return view('home.introduce.create');
     }

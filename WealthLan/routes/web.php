@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\CategoryImageController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\IntroduceController;
 use App\Http\Controllers\LandController;
 use App\Http\Controllers\NewPostController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +40,17 @@ use Spatie\Permission\Models\Permission;
 Route::get('wealthlan',function(){
     return view('page.index');
 })->name('page.index');
+//web
+
+Route::prefix('/wealthlan')->group(function(){
+    Route::get('/',[PageController::class,'index'])->name('page.index');
+    Route::post('/lien-he',[PageController::class,'store'])->name('contact.create');
+    Route::get('/gioi-thieu',[IntroduceController::class,'generalIntroduce'])->name('introduce.index');
+    Route::get('/lien-he',[ContactController::class,'contact'])->name('contact.index');
+    Route::get('/hinh-anh',[ImageController::class,'image'])->name('image.index');
+    Route::get('/chi-tiet/{id}',[PageController::class,'detail'])->name('land.detail');
+
+});
 
 Route::get('wealthlan/contact',function(){
     return view('page.contact');
@@ -79,7 +93,7 @@ Route::prefix('/banner')->group(function(){
     Route::get('/delete/{id}',[BannerController::class,'delete'])->name('banner.delete');
 });
 
-// category
+// categoryland
 Route::prefix('/category')->group(function(){
     Route::get('/',[CategoryController::class,'index'])->name('category.list');
     Route::get('/create',[CategoryController::class,'formCreate'])->name('category.create');
@@ -108,7 +122,7 @@ Route::prefix('/introduce')->group(function(){
     Route::post('/update/{id}',[IntroduceController::class,'update'])->name('introduce.update');
     Route::get('/delete/{id}',[IntroduceController::class,'delete'])->name('introduce.delete');
 });
-//new_post
+//category Post
 Route::prefix('/new-post')->group(function(){
     Route::get('/',[NewPostController::class,'index'])->name('new-post.list');
     Route::post('/store',[NewPostController::class,'store'])->name('new-post.store');
@@ -139,12 +153,26 @@ Route::prefix('/partner')->group(function(){
 //contact
 Route::prefix('/contact')->group(function(){
     Route::get('/',[ContactController::class,'index'])->name('contact.list');
-    Route::get('/create',[ContactController::class,'create'])->name('contact.create');
-    Route::post('/store',[ContactController::class,'store'])->name('contact.store');
     Route::get('/delete/{id}',[ContactController::class,'delete'])->name('contact.delete');
 });
 
+// category Image
+Route::prefix('/category-image')->group(function(){
+    Route::get('/',[CategoryImageController::class,'index'])->name('categoryImage.list');
+    Route::post('/store',[CategoryImageController::class,'store'])->name('categoryImage.store');
+    Route::post('/update/{id}',[CategoryImageController::class,'update'])->name('categoryImage.update');
+    Route::get('/delete/{id}',[CategoryImageController::class,'delete'])->name('categoryImage.delete');
+});
 
+//image
+Route::prefix('/image')->group(function(){
+    Route::get('/',[ImageController::class,'index'])->name('image.list');
+    Route::get('/create',[ImageController::class,'create'])->name('image.create');
+    Route::post('/store',[ImageController::class,'store'])->name('image.store');
+    Route::get('/edit/{id}',[ImageController::class,'edit'])->name('image.edit');
+    Route::post('/update/{id}',[ImageController::class,'update'])->name('image.update');
+    Route::get('/delete/{id}',[ImageController::class,'delete'])->name('image.delete');
+});
 
 
 

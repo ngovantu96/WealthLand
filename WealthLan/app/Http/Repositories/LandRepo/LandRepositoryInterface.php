@@ -11,4 +11,5 @@ interface LandRepositoryInterface extends RepositoryInterface
     public function update($request, $obj);
     public function getCategory();
     public function getUser();
+    public function getHot();
 }

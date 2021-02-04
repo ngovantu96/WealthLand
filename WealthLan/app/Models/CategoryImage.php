@@ -8,5 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class CategoryImage extends Model
 {
     use HasFactory;
-    public $timestamps = false;
+
+    protected  $table = 'category_images';
+
+    public function images(){
+        return $this->hasMany(Image::class);
+    }
 }

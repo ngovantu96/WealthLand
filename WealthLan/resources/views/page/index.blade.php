@@ -28,11 +28,12 @@
         </a>
 
         <div class="contact-box">
-            <form>
-                <input type="text" class="field" placeholder="Vui lòng nhập họ tên"/>
-                <input type="text" class="field" placeholder="Số điện thoại"/>
-                <input type="text" class="field" placeholder="Email"/>
-                <textarea class="field area" placeholder="Viết bình luận" rows="4"></textarea>
+            <form method="post" action="{{ route('contact.create') }}">
+                @csrf
+                <input type="text" class="field" name="name" placeholder="Vui lòng nhập họ tên"/>
+                <input type="text" class="field" name="phone" placeholder="Số điện thoại"/>
+                <input type="text" class="field" name="email" placeholder="Email"/>
+                <textarea class="field area" name="comment" placeholder="Viết bình luận" rows="4"></textarea>
                 <button class="btn btn-accent">Đăng ký Tư Vấn</button>
             </form>
         </div>
@@ -40,7 +41,7 @@
     </div>
 </section>
 <section class="container search-area">
-    <form action="" class="search-form">
+    <form action="" class="search-form" method="post">
         <div class="row">
             <div class="col-lg-4">
                 <div class="combox-wapper">
@@ -108,42 +109,16 @@
     <div class="title-secction"><h2 class="text-center">DỰ ÁN NỔI BẬT</h2></div>
     <div class="container">
         <div class="row row-cols-1 row-cols-md-2 g-4">
+{{--            @foreach($hots as $hot)--}}
             <div class="col">
                 <div class="card">
-                    <img src="img/banner-3.jpg" class="card-img-top" alt="...">
+                    <img src="" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <h5 class="card-title"></h5>
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card">
-                    <img src="img/banner-3.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="img//banner-3.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="img/banner-3.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                </div>
-            </div>
+{{--            @endforeach--}}
         </div>
     </div>
 </section>
@@ -169,93 +144,18 @@
 <section class="container project">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 mt-3">
-                <div class="row">
+            @foreach($lands as $land)
                     <div class="col-lg-3 mt-3">
                         <div class="card">
-                            <img src="img/banner-3.jpg" class="card-img-top" alt="...">
-                            <div class="card-view"><h6 class="view">XEM CHI TIẾT</h6></div>
+                            <img src="{{ $land->getImage() }}" class="card-img-top" alt="...">
+                            <div class="card-view"><a href="{{ route('land.detail',$land->id) }}"><h6 class="view">XEM CHI TIẾT</h6></a></div>
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
+                                <h5 class="card-title">{{ $land->title }}</h5>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-3 mt-3">
-                        <div class="card">
-                            <img src="img/banner-3.jpg" class="card-img-top" alt="...">
-                            <div class="card-view"><h6 class="view">XEM CHI TIẾT</h6></div>
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 mt-3">
-                        <div class="card">
-                            <img src="img//banner-3.jpg" class="card-img-top" alt="...">
-                            <div class="card-view"><h6 class="view">XEM CHI TIẾT</h6></div>
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 mt-3">
-                        <div class="card">
-                            <img src="img/banner-3.jpg" class="card-img-top" alt="...">
-                            <div class="card-view"><h6 class="view">XEM CHI TIẾT</h6></div>
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-12 mt-3">
-                <div class="row">
-                    <div class="col-lg-3 mt-3">
-                        <div class="card">
-                            <img src="img/banner-3.jpg" class="card-img-top" alt="...">
-                            <div class="card-view"><h6 class="view">XEM CHI TIẾT</h6></div>
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 mt-3">
-                        <div class="card">
-                            <img src="img/banner-3.jpg" class="card-img-top" alt="...">
-                            <div class="card-view"><h6 class="view">XEM CHI TIẾT</h6></div>
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 mt-3">
-                        <div class="card">
-                            <img src="img//banner-3.jpg" class="card-img-top" alt="...">
-                            <div class="card-view"><h6 class="view">XEM CHI TIẾT</h6></div>
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 mt-3">
-                        <div class="card">
-                            <img src="img/banner-3.jpg" class="card-img-top" alt="...">
-                            <div class="card-view"><h6 class="view">XEM CHI TIẾT</h6></div>
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
 
         </div>
     </div>
@@ -267,16 +167,17 @@
     <div class="container-intro">
         <div class="row">
             <div class="col-lg-6">
-                <img src="img/banner-3.jpg" class="card-img-top" alt="...">
+                <img src="{{ asset('font_end/img/tin-tuc.jpg') }}"  alt="...">
             </div>
             <div class="col-lg-6">
+                <div class="container container-title">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h2 class="text-center">KHÁT VỌNG VƯƠN XA</h2>
+                        <h2 class="text-center mt-3">KHÁT VỌNG VƯƠN XA</h2>
                         <p>Chúng tôi tin tưởng rằng việc thành lập WEALTH LAND sẽ là tiền đề nền móng vững chắc để hình thành khai thác và xây dựng những dự án Bất Động Sản với những thương hiệu mới, công trình mới và thành công mới. Xuất phát từ góc nhìn Thành phố Huế là thị trường khởi sắc tiềm năng nhiều triển vọng,
                             chúng tôi hy vọng sẽ song hành cùng với sự phát triển của Huế trong tương lai gần và sẽ tiến xa</p>
                     </div>
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 mt-4">
                         <div class="row">
                             <div class="col-lg-6">
                                 <h4>TẦM NHÌN</h4>
@@ -290,7 +191,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 mt-4">
                         <div class="row">
                             <div class="col-lg-6">
                                 <h4>GIÁ TRỊ CỐT LÕI</h4>
@@ -304,6 +205,7 @@
                     </div>
                 </div>
             </div>
+            </div>
         </div>
     </div>
 </div>
@@ -314,47 +216,18 @@
     <div class="col-lg-12 mt-3">
         <div class="row">
             <div class="col-lg-12">
-                <h2 class="text-center">KHÁT VỌNG VƯƠN XA</h2>
+                <h2 class="text-center">TIN TỨC</h2>
             </div>
-            <div class="col-lg-3 mt-3">
+            @foreach($posts as $post)
+            <div class="col-lg-4 mt-3">
                 <div class="card">
-                    <img src="img/banner-3.jpg" class="card-img-top" alt="...">
-                    <div class="card-view"><h6 class="view">XEM CHI TIẾT</h6></div>
+                    <img src="{{ $post->getImage() }}" class="card-img-top" alt="..." height="300px">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
+                        <h5 class="card-title">{{ $post->title }}</h5>
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-3 mt-3">
-                <div class="card">
-                    <img src="img/banner-3.jpg" class="card-img-top" alt="...">
-                    <div class="card-view"><h6 class="view">XEM CHI TIẾT</h6></div>
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 mt-3">
-                <div class="card">
-                    <img src="img//banner-3.jpg" class="card-img-top" alt="...">
-                    <div class="card-view"><h6 class="view">XEM CHI TIẾT</h6></div>
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 mt-3">
-                <div class="card">
-                    <img src="img/banner-3.jpg" class="card-img-top" alt="...">
-                    <div class="card-view"><h6 class="view">XEM CHI TIẾT</h6></div>
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 

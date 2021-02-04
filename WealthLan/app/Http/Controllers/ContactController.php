@@ -11,17 +11,12 @@ class ContactController extends Controller
         $contacts = Contact::all();
         return view('home.contact.list',compact('contacts'));
     }
-    public function store(Request $request){
-        $contact = new Contact();
-        $contact->name = $request->name;
-        $contact->email = $request->email;
-        $contact->phone = $request->phone;
-        $contact->comment = $request->comment;
-        $contact->save();
-        return redirect()->route('')->with('add','Gửi thành công.');
-    }
+
     public function delete($id){
         Contact::where('id',$id)->delete();
         return redirect()->route('contact.list')->with('delete','delete success');
+    }
+    public function contact(){
+        return view('page.contact');
     }
 }

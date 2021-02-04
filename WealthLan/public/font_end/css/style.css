@@ -70,6 +70,14 @@ body{
     transform: scaleX(1);
     transform-origin: left;
 }
+li.item ul{
+    width: 240px;
+    overflow: hidden;
+    transition: .3s all;
+    flex-direction: column;
+    left: -1rem;
+    display: block;
+}
 label #btn,#cancel{
     color: white;
     font-size: 30px;
@@ -185,7 +193,7 @@ contact-form .btn-accent{
  }
  .project-hot{
      margin-top: 20px;
-     background-color: aquamarine;
+
  }
 .title-secction h2{
      padding-top: 30px;
@@ -234,15 +242,25 @@ contact-form .btn-accent{
  }
  .active{
     background: #f7c747;
+     color: white;
+}
+ .active:hover{
+     color: white;
  }
- .small-tab-controls ul li a{
+.small-tab-controls ul li a{
     display: block;
     padding: 1rem;
     position: relative;
     transition: .3s all;
     text-decoration: none;
  }
- .card{
+.small-tab-controls ul li a.active {
+    background: #f7c747;
+}
+.small-tab-controls ul li a:hover{
+    color: black;
+}
+.card{
      position: relative;
  }
 
@@ -308,6 +326,10 @@ contact-form .btn-accent{
 .banner img{
     height: 300px;
     width: 100%;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
 }
 .intro-detail{
     margin-top: 200px;
@@ -362,7 +384,6 @@ contact-form .btn-accent{
     color: white;
 }
 .call-introduct-data{
-    margin: 1.5rem 90px 0;
     text-align: center;
     display: block;
 
@@ -374,4 +395,29 @@ contact-form .btn-accent{
 }
 .partenr-title{
     margin-top: 5rem;
+}
+.container-title{
+    background: #f3f3f3;
+    height: 500px;
+}
+.land-intro-detals{
+    margin-top: 180px;
+}
+.image-detals{
+    width: 100%;
+    margin-top: 23px;
+}
+.image-detals img{
+    width: 100%;
+}
+.title-detail{
+    position: absolute;
+    margin-top: -120px;
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+.title-detail h2{
+    text-align: center;
+    color: white;
 }
