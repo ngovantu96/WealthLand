@@ -21,7 +21,6 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
         $image = Storage::disk('s3')->put('post',$request->image,'public');
         $this->model->image = $image;
 
-        $this->model->user_id = $request->user;
         $this->model->save();
 
     }
@@ -29,7 +28,6 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
         $obj->title = $request->title;
         $obj->new_post_id = $request->category_post;
         $obj->content = $request->content;
-        $obj->user_id = $request->user;
 
         if($request->image){
             Storage::disk('s3')->delete($obj->image);

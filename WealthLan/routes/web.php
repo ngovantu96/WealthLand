@@ -17,6 +17,7 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CategoryController;
+use App\Models\Land;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,31 +38,42 @@ use Spatie\Permission\Models\Permission;
 
 //web
 
-Route::get('wealthlan',function(){
-    return view('page.index');
-})->name('page.index');
+//Route::get('wealthlan',function(){
+//    return view('page.index');
+//})->name('page.index');
 //web
 
 Route::prefix('/wealthlan')->group(function(){
     Route::get('/',[PageController::class,'index'])->name('page.index');
     Route::post('/lien-he',[PageController::class,'store'])->name('contact.create');
-    Route::get('/gioi-thieu',[IntroduceController::class,'generalIntroduce'])->name('introduce.index');
+    Route::get('/tin-tuc',[PageController::class,'post'])->name('post.index');
+    Route::get('/doi-tac/{id}',[PageController::class,'partner'])->name('partner.index');
+    Route::get('/gioi-thieu',[IntroduceController::class,'Introduce'])->name('introduce.index');
     Route::get('/lien-he',[ContactController::class,'contact'])->name('contact.index');
     Route::get('/hinh-anh',[ImageController::class,'image'])->name('image.index');
-    Route::get('/chi-tiet/{id}',[PageController::class,'detail'])->name('land.detail');
+    Route::get('/loai-du-an/{id}',[PageController::class,'categoryland_detail'])->name('categoryland.detail');
+    Route::get('/tin-tuc/{id}',[PageController::class,'post_detail'])->name('post.detail');
 
+    Route::post('/dang-ki-tu-van',[ContactController::class,'store'])->name('contact.store');
+
+    Route::post('/ket-qua-tim-kiem',[PageController::class,'search'])->name('search');
+
+//     Route::get('wealthalnd',function(){
+//         $listData = Land::all();
+//         return response()->json($listData);
+//     });
 });
 
-Route::get('wealthlan/contact',function(){
-    return view('page.contact');
-});
 
-Route::get('/', [HomeController::class,'index'])->name('admin');
+// Route::get('/', [HomeController::class,'index'])->name('admin');
 Route::get('/login', [LoginController::class,'login'])->name('login');
 Route::post('/login', [LoginController::class,'checkLogin'])->name('checklogin');
 Route::get('/logout', [LoginController::class,'logout'])->name('logout');
 
 // user
+Route::middleware('auth')->prefix('admin')->group(function(){
+    Route::get('/',[HomeController::class,'index'])->name('admin.index');
+
 Route::prefix('/user')->group(function(){
     Route::get('/',[UserController::class,'index'])->name('user.list');
     Route::get('/create',[UserController::class,'formCreate'])->name('user.create');
@@ -70,27 +82,6 @@ Route::prefix('/user')->group(function(){
     Route::post('/update/{id}',[UserController::class,'update'])->name('user.update');
     Route::post('/update-password/{id}',[UserController::class,'editPass'])->name('user.edit-pass');
     Route::get('/delete/{id}',[UserController::class,'delete'])->name('user.delete');
-});
-
-
-// role
-//Route::get('/role', [RoleController::class,'index'])->name('role.list');
-Route::prefix('/role')->group(function(){
-    Route::get('/',[RoleController::class,'index'])->name('role.list');
-    Route::post('/store',[RoleController::class,'store'])->name('role.store');
-    Route::get('/edit/{id}',[RoleController::class,'edit'])->name('role.edit');
-    Route::post('/update/{id}',[RoleController::class,'update'])->name('role.update');
-    Route::get('/delete/{id}',[RoleController::class,'delete'])->name('role.delete');
-});
-
-//  bannner
-Route::prefix('/banner')->group(function(){
-    Route::get('/',[BannerController::class,'index'])->name('banner.list');
-    Route::get('/create',[BannerController::class,'formCreate'])->name('banner.create');
-    Route::post('/store',[BannerController::class,'store'])->name('banner.store');
-    Route::get('/edit/{id}',[BannerController::class,'edit'])->name('banner.edit');
-    Route::post('/update/{id}',[BannerController::class,'update'])->name('banner.update');
-    Route::get('/delete/{id}',[BannerController::class,'delete'])->name('banner.delete');
 });
 
 // categoryland
@@ -134,7 +125,7 @@ Route::prefix('/new-post')->group(function(){
 //post
 Route::prefix('/post')->group(function(){
     Route::get('/',[PostController::class,'index'])->name('post.list');
-    Route::get('/create',[PostController::class,'formCreate'])->name('post.create');
+    Route::get('/create',[PostController::class,'create'])->name('post.create');
     Route::post('/store',[PostController::class,'store'])->name('post.store');
     Route::get('/edit/{id}',[PostController::class,'edit'])->name('post.edit');
     Route::post('/update/{id}',[PostController::class,'update'])->name('post.update');
@@ -157,12 +148,7 @@ Route::prefix('/contact')->group(function(){
 });
 
 // category Image
-Route::prefix('/category-image')->group(function(){
-    Route::get('/',[CategoryImageController::class,'index'])->name('categoryImage.list');
-    Route::post('/store',[CategoryImageController::class,'store'])->name('categoryImage.store');
-    Route::post('/update/{id}',[CategoryImageController::class,'update'])->name('categoryImage.update');
-    Route::get('/delete/{id}',[CategoryImageController::class,'delete'])->name('categoryImage.delete');
-});
+
 
 //image
 Route::prefix('/image')->group(function(){
@@ -174,5 +160,5 @@ Route::prefix('/image')->group(function(){
     Route::get('/delete/{id}',[ImageController::class,'delete'])->name('image.delete');
 });
 
-
+});
 

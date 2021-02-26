@@ -23,8 +23,6 @@ class CreateLandsTable extends Migration
             $table->integer('hot')->default(1);
             $table->integer('status')->default(1);
             $table->longtext('image');
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
             $table->float('area');
             $table->integer('floor')->nullable();
             $table->integer('bedroom')->nullable();

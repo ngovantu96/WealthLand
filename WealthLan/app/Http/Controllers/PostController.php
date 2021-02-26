@@ -2,53 +2,46 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Repositories\PostRepo\PostRepositoryInterface;
-use App\Http\Requests\PostRequest;
 use App\Models\NewPost;
 use App\Models\Post;
-use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
-    private $postRepository;
+    private $postRepo;
     private $postModel;
-    public function __construct(PostRepositoryInterface $postRepository,Post $posModel)
-    {
-        $this->postRepository = $postRepository;
-        $this->postModel = $posModel;
+    public function __construct(PostRepositoryInterface $postRepo, Post $postModel){
+        $this->postRepo = $postRepo;
+        $this->postModel = $postModel;
     }
-
     public function index(){
-        $posts = $this->postRepository->getAll();
+        $posts = $this->postRepo->getAll();
         return view('home.post.list',compact('posts'));
     }
-    public function formCreate(){
-        $users = User::all();
+    public function create(){
         $categoryPosts = NewPost::all();
-        return view('home.post.create',compact('users','categoryPosts'));
+        return view('home.post.create',compact('categoryPosts'));
     }
-    public function store(PostRequest $request){
-        $this->postRepository->create($request);
-        return redirect()->route('post.list')->with('add','add successful!!');
+    public function store(Request $request){
+        $this->postRepo->create($request);
+        return  redirect()->route('post.index')->with('add','Add successful !!!');;
     }
     public function edit($id){
-        $post = $this->postRepository->findById($id);
-        $users = User::all();
+        $post = $this->postRepo->findById($id);
         $categoryPosts = NewPost::all();
+        return view('home.post.edit',compact('post','categoryPosts'));
+    }
+    public function update(Request $request, $id){
+        $post = $this->postRepo->findById($id);
+        $this->postRepo->update($request,$id);
+        return redirect()->route('post.index')->with('update','Update successful !!!');
+    }
 
-        return view('home.post.edit',compact('post','users','categoryPosts'));
-    }
-    public function update(PostRequest $request,$id){
-        $post = $this->postRepository->findById($id);
-        $this->postRepository->update($request,$post);
-        return redirect()->route('post.list')->with('add','add successful!!');
-    }
     public function delete($id){
-        $land = $this->postModel->findOrFail($id);
-        Storage::disk('s3')->delete($land->image);
-        $this->postRepository->delete($id);
-        return redirect()->route('post.list')->with('delete','delete success');
+        $post = $this->postModel->findOrFail($id);
+        Storage::disk('s3')->delete($post->image);
+        $this->postRepo->delete($id);
+        return redirect()->route('land.list')->with('delete','delete successful !!!');
     }
 }

@@ -21,9 +21,7 @@ class Post extends Model
     public function newpost(){
         return $this->belongsTo(NewPost::class,'new_post_id');
     }
-    public function user(){
-        return $this->belongsTo(User::class,'user_id');
-    }
+   
 
     function getImage(){
         return "https://tungoc8.s3.amazonaws.com/".$this->image;

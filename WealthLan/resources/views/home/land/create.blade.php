@@ -25,15 +25,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="name">Người Phụ Trách</label>
-                        <select class="form-control" name="user" id="">
-                            @foreach($users as $user)
-                                <option value="{{ $user->id }}">{{ $user->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
-                    <div class="form-group">
                         <label for="title">Tiêu Đề</label>
                         <input type="text" class="form-control" name="title" placeholder="Enter Title">
                     </div>

@@ -17,7 +17,7 @@ class CreateIntroductionsTable extends Migration
             $table->id();
             $table->string('title');
             $table->longtext('description');
-            $table->string('content');
+            $table->longtext('content');
             $table->string('sologan');
             $table->timestamps();
         });

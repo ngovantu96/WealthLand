@@ -17,17 +17,11 @@ class LoginController extends Controller
             'email' => $request->email,
             'password' => $request->password,
          ];
-         if(Auth::attempt([$user])){
-             return  redirect()->route('admin');
-         }else {
-             return view('home.login');
+         if (!Auth::attempt($user)) {
+             return redirect()->route('login')->with('error','tài khoản đăng nhập hoặc mật khẩu sai');
+         } else {
+             return redirect()->route('admin.index');
          }
-        //  if (Auth::attempt($user) && Gate::allows(1)) {
-        //         return redirect()->route('admin');
-        // } else {
-        //     return view('error.403');
-
-        // }
     }
     public function logout(){
         Auth::logout();

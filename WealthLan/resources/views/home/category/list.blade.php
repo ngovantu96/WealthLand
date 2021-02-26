@@ -2,7 +2,7 @@
 @section('page-title','Danh Sách Banner')
 @section('content')
 <div class="contaner ml-2">
-    <h1>Danh Sách Banner</h1>
+    <h1>Danh Sách Dự Án</h1>
 </div>
 
 

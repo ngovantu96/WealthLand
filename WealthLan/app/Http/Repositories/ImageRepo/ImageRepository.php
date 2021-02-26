@@ -13,16 +13,12 @@ class ImageRepository extends BaseRepository implements ImageRepositoryInterface
          parent::__construct($model);
      }
     public function create($request){
-        $this->model->image_id = $request->category_image;
-
         $image = Storage::disk('s3')->put('images',$request->image,'public');
         $this->model->image    = $image;
-
         $this->model->save();
     }
 
     public function update($request,$obj){
-        $obj->image_id = $request->category_image;
         if($request->image){
             Storage::disk('s3')->delete($obj->image);
             $image = Storage::disk('s3')->put('images',$request->image,'public');

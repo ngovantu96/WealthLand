@@ -39,6 +39,16 @@
     #check:checked ~ label #cancel{
         display: block;
     }
+    .gallery-room{
+        margin-top: 100px;
+    }
+    .gallery-room .title-section .text-center{
+        font-size: 4rem;
+        font-weight: bold;
+    }
+    .post-content a,p{
+        margin-left: 18px;
+    }
 }
 @media(max-width: 992px){
     label #btn{
@@ -78,6 +88,24 @@
     #check:checked ~ label #cancel{
         display: block;
     }
+    .gallery-room{
+        margin-top: 100px;
+    }
+    .slider{
+        margin-top: -2px;
+    }
+    .post-content a,p{
+        margin-left: 8px;
+    }
+    .partner-content p{
+        margin-left: 0;
+    }
+    .copyright .title{
+        margin-left: -6px;
+    }
+    .blog-content{
+        margin-left: 88px;
+    }
 }
 @media(max-width: 768px){
     label #btn{
@@ -116,6 +144,18 @@
     }
     #check:checked ~ label #cancel{
         display: block;
+    }
+    .gallery-room{
+        margin-top: 330px;
+    }
+    .gallery-room .title-section .text-center{
+        font-size: 34px;
+        font-weight: bold;
+    }
+    .blog-content h3{
+        margin-left: 66px;
+        margin-top: 20px;
+        font-size: 23px;
     }
 
 }
@@ -157,6 +197,18 @@
     #check:checked ~ label #cancel{
         display: block;
     }
+    .gallery-room{
+        margin-top: 350px;
+    }
+    .gallery-room .title-section .text-center{
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .blog-content h3{
+        margin-left: -43px;
+        margin-top: 20px;
+        font-size: 23px;
+    }
 }
 @media(max-width: 480px){
     label #btn{
@@ -171,7 +223,7 @@
     .search-area{
         height: 400px;
     }
-    
+
     .items{
         position: fixed;
         width: 100%;
@@ -199,5 +251,20 @@
     }
     #check:checked ~ label #cancel{
         display: block;
+    }
+    .gallery-room{
+        margin-top: 128px;
+    }
+    .gallery-room .title-section .text-center{
+        font-size: 22px;
+        font-weight: bold;
+    }
+    .container-title{
+        height: 800px;
+    }
+    .blog-content h3{
+        margin-left: -43px;
+        margin-top: 20px;
+        font-size: 23px;
     }
 }

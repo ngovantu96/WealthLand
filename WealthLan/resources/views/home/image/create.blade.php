@@ -13,17 +13,9 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form action="{{ route('image.store') }} " method="post">
+                <form action="{{ route('image.store') }} " method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
-                        <div class="form-group">
-                            <label for="category_image">Loại Hình Ảnh</label>
-                            <select name="category_image" class="form-control" >
-                                @foreach($categoryImages as $categoryImage)
-                                    <option value="{{ $categoryImage->id }}">{{ $categoryImage->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
                         <div class="form-group">
                             <label for="image">Loại Hình Ảnh</label>
                             <input type="file" name="image" placeholder="Chọn hình">

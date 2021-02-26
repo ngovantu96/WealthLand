@@ -17,16 +17,6 @@
                         <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>
-
-                    <div class="form-group">
-                        <label for="category">Chức Vụ</label>
-                        <select class="form-control" name="role">
-                            @foreach($roles as $role)
-                                <option value="{{ $role->id }}"{{ ($role->name==$user->role->name)?'selected' :''}}>{{ $role->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" class="form-control" name="email" value="{{ $user->email }}" placeholder="Enter Email">

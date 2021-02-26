@@ -25,14 +25,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="name">Người Viết Bài</label>
-                        <select class="form-control" name="user" >
-                            @foreach($users as $user)
-                                <option value="{{ $user->id }}">{{ $user->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group">
                         <label for="image">Hình Ảnh</label>
                         <input type="file" class="form-control" name="image" id="image" >
                     </div>

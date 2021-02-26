@@ -28,7 +28,7 @@
                 <td scope="col">{{ ++$key }}</td>
                 <td scope="col">{{ $introduce->title }}</td>
                 <td scope="col">{!! $introduce->description !!}  </td>
-                <td scope="col">{{ $introduce->content }}</td>
+                <td scope="col">{!! $introduce->content !!}</td>
                 <td scope="col">{{ $introduce->sologan }}</td>
                 <td>
                     <a href="{{ route('introduce.edit',$introduce->id) }}" ><i class="far fa-edit btn btn-warning"></i></a> ||

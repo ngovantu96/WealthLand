@@ -30,7 +30,6 @@ class LandRepository extends BaseRepository implements LandRepositoryInterface
     public function create($request){
         $this->model->name = $request->name;
         $this->model->category_id = $request->category;
-        $this->model->user_id = $request->user;
         $this->model->title = $request->title;
         $this->model->introductionContent = $request->content;
 
@@ -51,7 +50,6 @@ class LandRepository extends BaseRepository implements LandRepositoryInterface
     public function update($request,$obj){
         $obj->name = $request->name;
         $obj->category_id = $request->category;
-        $obj->user_id = $request->user;
         $obj->title = $request->title;
         $obj->introductionContent = $request->content;
 

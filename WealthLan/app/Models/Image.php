@@ -11,9 +11,6 @@ class Image extends Model
 
     protected $table = 'images';
 
-    public function categoryImage(){
-        return $this->belongsTo(CategoryImage::class);
-    }
 
     function getImage(){
         return "https://tungoc8.s3.amazonaws.com/".$this->image;

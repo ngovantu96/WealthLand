@@ -7,46 +7,56 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="{{ asset('font_end/img/banner-1.jpg') }}" class="d-block w-100" alt="...">
+               <div class="carousel-caption">
+                   <h2 class="animate__animated animate__slideInLeft animate__delay-0.1s">Bất Động Sản WEALTHLAN</h2>
+                   <h3 class="animate__animated animate__slideInLeft animate__delay-0.1s">Huế, Việt Nam</h3>
+                   <a class="btn btn-outline-primary animate__animated animate__slideInLeft animate__delay-0.1s">Xem Chi Tiết</a>
+               </div>
             </div>
             <div class="carousel-item">
                 <img src="{{ asset('font_end/img/banner-3.jpg') }}" class="d-block w-100" alt="...">
+                <div class="carousel-caption">
+                    <h2 class="animate__animated animate__slideInLeft animate__delay-0.1s">Bất Động Sản WEALTHLAN</h2>
+                    <h3 class="animate__animated animate__slideInLeft animate__delay-0.1s">Huế, Việt Nam</h3>
+                    <a class="btn btn-outline-primary animate__animated animate__slideInLeft animate__delay-0.1s">Xem Chi Tiết</a>
+                </div>
             </div>
             <div class="carousel-item">
                 <img src="{{ asset('font_end/img/banner-5.jpg') }}" class="d-block w-100" alt="...">
+                <div class="carousel-caption">
+                    <h2 class="animate__animated animate__slideInLeft animate__delay-0.1s">Bất Động Sản WEALTHLAN</h2>
+                    <h3 class="animate__animated animate__slideInLeft animate__delay-0.1s">Huế, Việt Nam</h3>
+                    <a class="btn btn-outline-primary animate__animated animate__slideInLeft animate__delay-0.1s">Xem Chi Tiết</a>
+                </div>
             </div>
             <div class="carousel-item">
                 <img src="{{ asset('font_end/img/banner-6.jpg') }}" class="d-block w-100" alt="...">
+                <div class="carousel-caption">
+                    <h2 class="animate__animated animate__slideInLeft animate__delay-0.1s">Bất Động Sản WEALTHLAN</h2>
+                    <h3 class="animate__animated animate__slideInLeft animate__delay-0.1s">Huế, Việt Nam</h3>
+                    <a class="btn btn-outline-primary animate__animated animate__slideInLeft animate__delay-0.1s">Xem Chi Tiết</a>
+                </div>
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
+            <span class="sr-only"></span>
         </a>
         <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
+            <span class="sr-only"></span>
         </a>
-
-        <div class="contact-box">
-            <form method="post" action="{{ route('contact.create') }}">
-                @csrf
-                <input type="text" class="field" name="name" placeholder="Vui lòng nhập họ tên"/>
-                <input type="text" class="field" name="phone" placeholder="Số điện thoại"/>
-                <input type="text" class="field" name="email" placeholder="Email"/>
-                <textarea class="field area" name="comment" placeholder="Viết bình luận" rows="4"></textarea>
-                <button class="btn btn-accent">Đăng ký Tư Vấn</button>
-            </form>
-        </div>
-
     </div>
 </section>
+
 <section class="container search-area">
-    <form action="" class="search-form" method="post">
+    <form action="{{ route('search') }}" class="search-form" method="post">
+        @csrf
         <div class="row">
             <div class="col-lg-4">
                 <div class="combox-wapper">
                     <label>Giá Nhà</label>
-                    <select name="" class="control" placeholder="khoảng giá" name="price">
+                    <select name="" class="control" placeholder="khoảng giá">
                         <option value="1">Dưới 1.5 tỷ</option>
                         <option value="2">Từ 1.5-2.5 tỷ</option>
                         <option value="3">Từ 2.5tỷ-4 tỷ</option>
@@ -58,7 +68,7 @@
             <div class="col-lg-4">
                 <div class="combox-wapper">
                     <label>Diện Tích</label>
-                    <select name="" class="control" placeholder="Diện Tích" name="area">
+                    <select name="" class="control" placeholder="Diện Tích">
                         <option value="1">Dưới 85 m2</option>
                         <option value="2">Từ 85 m2 - 135 m2</option>
                         <option value="3">Từ 135 m2 - 200m2</option>
@@ -70,7 +80,7 @@
             <div class="col-lg-4">
                 <div class="combox-wapper">
                     <label>Phòng Ngủ</label>
-                    <select name="" class="control" placeholder="Phòng Ngủ" name="bedroom">
+                    <select name="" class="control" placeholder="Phòng Ngủ">
                         <option value="1">Từ 1 - 2 Phòng</option>
                         <option value="2">Từ 2 - 4 Phòng</option>
                         <option value="3">Trên 4 Phòng</option>
@@ -82,7 +92,7 @@
             <div class="col-lg-4">
                 <div class="combox-wapper">
                     <label>Phòng Tắm</label>
-                    <select name="" class="control" placeholder="số phòng tắm" name="bathroom">
+                    <select name="" class="control" placeholder="số phòng tắm">
                         <option value="1">Từ 1 -2 Phòng</option>
                         <option value="2">Từ 2 - 4 Phòng</option>
                         <option value="3">Trên 4</option>
@@ -104,40 +114,10 @@
         </div>
     </form>
 </section>
-<!-- du an nỏi bat  -->
-<section class="container project-hot">
-    <div class="title-secction"><h2 class="text-center">DỰ ÁN NỔI BẬT</h2></div>
-    <div class="container">
-        <div class="row row-cols-1 row-cols-md-2 g-4">
-{{--            @foreach($hots as $hot)--}}
-            <div class="col">
-                <div class="card">
-                    <img src="" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title"></h5>
-                    </div>
-                </div>
-            </div>
-{{--            @endforeach--}}
-        </div>
-    </div>
-</section>
 
 <!-- du an dang trien khai -->
 <section class="container gallery-room">
-    <div class="title-section"><h2 class="text-center">DỰ ÁN ĐANG TRIỂN KHAI</h2></div>
-    <div class="small-tab-controls">
-        <ul id="category-product">
-            <li><div><a href="" class="category-link active" ><i class="far fa-bookmark"></i> Tất cả</a></div></li>
-            <li><div><a href="javascript:void(0)" class="category-link"><i class="far fa-bookmark"></i> Căn hộ</a></div></li>
-            <li><div><a href="javascript:void(0)" class="category-link"><i class="far fa-bookmark"></i> Đất nền</a></div></li>
-            <li><div><a href="javascript:void(0)" class="category-link"><i class="far fa-bookmark"></i> BDS nghĩ dưỡng</a></div></li>
-            <li><div><a href="javascript:void(0)" class="category-link"><i class="far fa-bookmark"></i> Nhà phố biệt thự</a></div></li>
-            <li><div><a href="javascript:void(0)" class="category-link"><i class="far fa-bookmark"></i> Officetel</a></div></li>
-            <li><div><a href="javascript:void(0)" class="category-link"><i class="far fa-bookmark"></i> Shophouse</a></div></li>
-            <li><div><a href="javascript:void(0)" class="category-link"><i class="far fa-bookmark"></i> Condotel</a></div></li>
-        </ul>
-    </div>
+    <div class="title-section"><h2 class="text-center">DANH SÁCH DỰ ÁN</h2></div>
 </section>
 <!-- end du an dang trien khai -->
 <!-- list du an dang trienr khai -->
@@ -147,10 +127,10 @@
             @foreach($lands as $land)
                     <div class="col-lg-3 mt-3">
                         <div class="card">
-                            <img src="{{ $land->getImage() }}" class="card-img-top" alt="...">
-                            <div class="card-view"><a href="{{ route('land.detail',$land->id) }}"><h6 class="view">XEM CHI TIẾT</h6></a></div>
+                            <a href=""><img src="{{ $land->getImage() }}" class="card-img-top" alt="..."></a>
+                            <div class="card-view"><a href=""></a></div>
                             <div class="card-body">
-                                <h5 class="card-title">{{ $land->title }}</h5>
+                                <a href=""><h6 class="card-title">{{ $land->title }}</h6></a>
                             </div>
                         </div>
                     </div>
@@ -166,8 +146,8 @@
 <div class="container mt-5">
     <div class="container-intro">
         <div class="row">
-            <div class="col-lg-6">
-                <img src="{{ asset('font_end/img/tin-tuc.jpg') }}"  alt="...">
+            <div class="col-lg-6 intro-img">
+                <img src="{{ asset('font_end/img/tin-tuc.jpg') }}" width="100%" alt="...">
             </div>
             <div class="col-lg-6">
                 <div class="container container-title">
@@ -221,9 +201,9 @@
             @foreach($posts as $post)
             <div class="col-lg-4 mt-3">
                 <div class="card">
-                    <img src="{{ $post->getImage() }}" class="card-img-top" alt="..." height="300px">
+                    <a href="{{ route('post.detail',$post->id) }}"><img src="{{ $post->getImage() }}" class="card-img-top" alt="..." height="300px"></a>
                     <div class="card-body">
-                        <h5 class="card-title">{{ $post->title }}</h5>
+                        <a href="{{ route('post.detail',$post->id) }}"><h5 class="card-title">{{ $post->title }}</h5></a>
                     </div>
                 </div>
             </div>
@@ -235,4 +215,7 @@
 <!-- end tin tuc -->
 
 <!-- footer -->
+@endsection
+@section('js')
+
 @endsection

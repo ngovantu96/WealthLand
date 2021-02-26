@@ -19,9 +19,6 @@
             <th scope="col">Hình Ảnh</th>
             <th scope="col">Loại Dự Án</th>
             <th scope="col">Tiêu Đề</th>
-            <th scope="col">Người phụ Trách</th>
-            <th scope="col">Trạng Thái</th>
-            <th scope="col">Hot</th>
             <th scope="col">Action</th>
         </tr>
         </thead>
@@ -36,10 +33,7 @@
             <th scope="col">{{ isset($land->category->name)? $land->category->name : '' }}</th>
             <th scope="col">{{ $land->title }}</th>
             <th scope="col">{{ isset($land->user->name)?$land->user->name: '' }}</th>
-            <th scope="col">{{ $land->status }}</th>
-            <th scope="col">{{ $land->hot }}</th>
             <td>
-                <a href="" ><i class="fas fa-book-open btn btn-success"></i></a> ||
                 <a href="{{ route('land.edit',$land->id) }}" ><i class="far fa-edit btn btn-warning"></i></a> ||
                 <a href="{{ route('land.delete',$land->id) }}"><i class="far fa-trash-alt ml-2 btn btn-danger"></i></a>
             </td>

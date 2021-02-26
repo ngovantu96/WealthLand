@@ -7,9 +7,11 @@
         <li class="nav-item d-none d-sm-inline-block">
             <a href="index3.html" class="nav-link">Trang Chủ</a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Thông Tin</a>
-        </li>
+        {{-- <li class="nav-item d-none d-sm-inline-block"> --}}
+          <!-- Button trigger modal -->
+   <!-- Button trigger modal -->
+            {{-- <a href="#" class="nav-link">Đổi Mật Khẩu</a> --}}
+        {{-- </li> --}}
     </ul>
 
     <!-- SEARCH FORM -->

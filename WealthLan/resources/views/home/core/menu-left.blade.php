@@ -12,7 +12,7 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href="{{ route('admin') }}" class="nav-link active">
+                    <a href="{{ route('admin.index') }}" class="nav-link active">
                         <i class="nav-icon fas fa-th"></i>
                         <p>Dash board</p>
                     </a>
@@ -21,18 +21,6 @@
                     <a href="{{ route('user.list') }}" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>Quản Lý Người Dùng</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('role.list') }}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>Quản Lý Chức Vụ</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('banner.list') }}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>Quản Lý Banner</p>
                     </a>
                 </li>
                 <li class="nav-item menu-open">
@@ -80,12 +68,6 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('categoryImage.list')}}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>Danh Sách Loại Ảnh</p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="{{route('image.list')}}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>Danh Sách Hình Ảnh</p>
@@ -96,7 +78,6 @@
                         <i class="fas fa-sign-out-alt ml-2"></i>
                         <p class="ml-2">Đăng Xuất</p>
                     </a>
-
                 </li>
 
             </ul>

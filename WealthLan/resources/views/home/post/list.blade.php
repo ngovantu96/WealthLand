@@ -15,7 +15,6 @@
         <thead>
         <tr>
             <th scope="col">STT</th>
-            <th scope="col">Người Viết Bài</th>
             <th scope="col">Tiều Đề</th>
             <th scope="col">Hình Ảnh</th>
             <th scope="col">Loại Bài Viết</th>
@@ -28,7 +27,6 @@
         @foreach($posts as $key=>$post)
             <tr>
                 <td scope="col">{{ ++$key }}</td>
-                <td scope="col">{{ $post->user->name }}</td>
                 <td scope="col">{{ $post->title }}  </td>
                 <td scope="col"><img src="{{ ($post->getImage()) }}" alt="" width="250px" height="200px"></td>
                 <td scope="col">{{ $post->newpost->title }}  </td>

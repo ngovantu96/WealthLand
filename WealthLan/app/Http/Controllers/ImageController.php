@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Repositories\ImageRepo\ImageRepositoryInterface;
 use App\Http\Requests\ImageRequest;
-use App\Models\CategoryImage;
 use Illuminate\Http\Request;
 use App\Models\Image;
+use App\Models\Category;
+use App\Models\Partner;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -23,8 +24,7 @@ class ImageController extends Controller
         return view('home.image.list',compact('images'));
     }
     public function create(){
-        $categoryImages = CategoryImage::all();
-        return view('home.image.create',compact('categoryImages'));
+        return view('home.image.create');
     }
 
     public function store(Request $request){
@@ -32,16 +32,16 @@ class ImageController extends Controller
        return redirect()->route('image.list')->with('add','Add successful !!!');
     }
 
-    public function edit($id){
-        $image = $this->imageRepository->findById($id);
-        return view('home.image.edit',compact('image'));
-    }
-//
-    public function update(ImageRequest $request,$id){
-        $image = $this->imageRepository->findById($id);
-        $this->imageRepository->update($request, $image);
-        return  redirect()->route('image.list')->with('update','Update successful !!!');
-    }
+//     public function edit($id){
+//         $image = $this->imageRepository->findById($id);
+//         return view('home.image.edit',compact('image'));
+//     }
+// //
+//     public function update(ImageRequest $request,$id){
+//         $image = $this->imageRepository->findById($id);
+//         $this->imageRepository->update($request, $image);
+//         return  redirect()->route('image.list')->with('update','Update successful !!!');
+//     }
 //
     public function delete($id){
         $image = $this->imageModel->findOrFail($id);
@@ -51,6 +51,8 @@ class ImageController extends Controller
     }
     public function image(){
         $images = $this->imageRepository->getAll();
-        return view('page.image',compact('images'));
+        $listLands = Category::all();
+        $partners = Partner::all();
+        return view('page.image',compact('images','listLands','partners'));
     }
 }

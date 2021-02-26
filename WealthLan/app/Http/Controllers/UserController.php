@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Repositories\UserRepo\UserRepositoryInterface;
 use App\Http\Requests\UserRequest;
-use App\Models\Role;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -19,12 +18,10 @@ class UserController extends Controller
 
     public function index(){
         $users = User::all();
-        $roles = Role::all();
-        return view('home.user.list',compact('users','roles'));
+        return view('home.user.list',compact('users'));
     }
     public function formCreate(){
-        $roles = Role::all();
-        return view('home.user.create',compact('roles'));
+        return view('home.user.create');
     }
     public function store(UserRequest $request){
         $this->userRepository->create($request);
@@ -32,8 +29,7 @@ class UserController extends Controller
     }
     public function edit($id){
         $user = $this->userRepository->findById($id);
-        $roles = Role::all();
-        return view('home.user.edit',compact('user','roles'));
+        return view('home.user.edit',compact('user'));
     }
     public function update(UserRequest $request,$obj){
         $this->userRepository->update($request,$obj);

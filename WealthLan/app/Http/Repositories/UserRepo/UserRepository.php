@@ -2,7 +2,6 @@
 namespace  App\Http\Repositories\UserRepo;
 
 use App\Http\Repositories\BaseRepository;
-use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
@@ -18,14 +17,12 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
         $this->model->name = $request->name;
         $this->model->email = $request->email;
         $this->model->password = Hash::make($request->password);
-        $this->model->role_id = $request->role;
         $this->model->save();
 
     }
     public function update($request,$obj){
         $obj->name = $request->name;
         $obj->email = $request->email;
-        $obj->role_id = $request->role;
         $obj->save();
     }
     public function editPass($request,$obj)

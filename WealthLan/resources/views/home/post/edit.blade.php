@@ -30,15 +30,6 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
-                        <label for="name">Người Viết Bài</label>
-                        <select class="form-control" name="user" >
-                            @foreach($users as $user)
-                                <option value="{{ $user->id }}"{{ ($user->name == $post->user->name) ? 'selected':'' }}>{{ $user->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
                 <div class="col-12">
                     <div class="form-group">
                         <label for="content">Nội Dung</label>
