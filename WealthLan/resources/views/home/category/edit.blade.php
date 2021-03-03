@@ -19,6 +19,9 @@
                     <div class="form-group">
                         <label for="name">TÊN DỰ ÁN</label>
                         <input type="text" class="form-control" name="name" value="{{ $category->name}}" placeholder="Nhập tên dự án">
+                        @error('name')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
                 <!-- /.card-body -->

@@ -12,6 +12,9 @@
                     <div class="form-group">
                         <label for="name">Tên Dự Án</label>
                         <input type="text" class="form-control" name="name" value="{{ $land->name }}" id="name" placeholder="Enter Name">
+                        @error('name')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div class="form-group">
@@ -26,10 +29,16 @@
                     <div class="form-group">
                         <label for="title">Tiêu Đề</label>
                         <input type="text" class="form-control" name="title" value="{{ $land->title }}" placeholder="Enter Title">
+                        @error('title')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="image">Hình Ảnh</label>
                         <input type="file" class="form-control" name="image" id="image" >
+                        @error('image')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="area">Diện Tích</label>

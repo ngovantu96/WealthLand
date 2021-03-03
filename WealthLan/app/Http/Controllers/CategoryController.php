@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\CategoryRequest;
 use App\Http\Repositories\CategoryRepo\CategoryRepositoryInterface;
 
 class CategoryController extends Controller
@@ -22,7 +22,7 @@ class CategoryController extends Controller
         return view('home.category.create');
     }
 
-    public function store(Request $request){
+    public function store(CategoryRequest $request){
         $this->categoryRepository->create($request);
         return  redirect()->route('category.list')->with('add','Add successful !!!');
     }
@@ -32,7 +32,7 @@ class CategoryController extends Controller
         return view('home.category.edit',compact('category',));
     }
 
-    public function update(Request $request,$id){
+    public function update(CategoryRequest $request,$id){
         $category = $this->categoryRepository->findById($id);
         $this->categoryRepository->update($request, $category);
         return  redirect()->route('category.list')->with('update','Update successful !!!');

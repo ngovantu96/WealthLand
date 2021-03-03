@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Repositories\ImageRepo\ImageRepositoryInterface;
 use App\Http\Requests\ImageRequest;
-use Illuminate\Http\Request;
 use App\Models\Image;
 use App\Models\Category;
 use App\Models\Partner;
@@ -27,7 +26,7 @@ class ImageController extends Controller
         return view('home.image.create');
     }
 
-    public function store(Request $request){
+    public function store(ImageRequest $request){
        $this->imageRepository->create($request);
        return redirect()->route('image.list')->with('add','Add successful !!!');
     }

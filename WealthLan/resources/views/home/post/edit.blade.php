@@ -13,11 +13,17 @@
                     <div class="form-group">
                         <label for="title">Tiêu Đề</label>
                         <input type="text" class="form-control" name="title" value="{{ $post->title }}" id="title" placeholder="Enter title">
+                        @error('title')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div class="form-group">
                         <label for="image">Hình Ảnh</label>
                         <input type="file" class="form-control" name="image" id="image" value="{{ $post->image }}" >
+                        @error('image')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div class="form-group">
@@ -34,6 +40,9 @@
                     <div class="form-group">
                         <label for="content">Nội Dung</label>
                         <textarea class="ckeditor" id="ckeditor" name="content">{!! $post->content !!}</textarea>
+                        @error('content')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
             </div>

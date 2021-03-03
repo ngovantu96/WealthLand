@@ -13,17 +13,25 @@
                     <div class="form-group">
                         <label for="title">Tên</label>
                         <input type="text" class="form-control" name='name' value="{{$partner->name}}" id="name" placeholder="Enter title">
+                        @error('name')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="title">Tiêu Đề</label>
                         <input type="text" class="form-control" name='title' value="{{$partner->title}}" id="title" placeholder="Enter title">
+                        @error('title')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="form-group">
                         <label for="description">Mô Tả</label>
                         <textarea class="ckeditor" id="ckeditor" name="description">{!! $partner->description !!}</textarea>
-
+                        @error('description')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Cập Nhật</button>

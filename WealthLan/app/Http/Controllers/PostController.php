@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
 use App\Http\Repositories\PostRepo\PostRepositoryInterface;
 use App\Models\NewPost;
 use App\Models\Post;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -23,7 +24,7 @@ class PostController extends Controller
         $categoryPosts = NewPost::all();
         return view('home.post.create',compact('categoryPosts'));
     }
-    public function store(Request $request){
+    public function store(PostRequest $request){
         $this->postRepo->create($request);
         return  redirect()->route('post.index')->with('add','Add successful !!!');;
     }
@@ -32,7 +33,7 @@ class PostController extends Controller
         $categoryPosts = NewPost::all();
         return view('home.post.edit',compact('post','categoryPosts'));
     }
-    public function update(Request $request, $id){
+    public function update(PostRequest $request, $id){
         $post = $this->postRepo->findById($id);
         $this->postRepo->update($request,$id);
         return redirect()->route('post.index')->with('update','Update successful !!!');

@@ -13,15 +13,24 @@
                     <div class="form-group">
                         <label for="title">Tiêu Đề</label>
                         <input type="text" class="form-control" value="{{ $introduce->title }}" name="title" id="name" placeholder="Enter Name">
+                        @error('title')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div class="form-group">
                         <label for="content">Nội Dung</label>
                         <textarea  id="" cols="70" rows="5" name="content">{{ $introduce->content }}</textarea>
+                        @error('content')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="sologan">Phương Châm</label>
                         <textarea  id="" cols="70" rows="5" name="sologan">{{ $introduce->sologan }}</textarea>
+                        @error('sologan')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
 
                     </div>
             </div>
@@ -29,6 +38,9 @@
                     <div class="form-group">
                         <label for="description">Mô tả</label>
                         <textarea class="ckeditor" id="ckeditor" name="description">{!! $introduce->description !!}</textarea>
+                        @error('description ')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <button type="submit" class="btn btn-primary">Cập Nhật</button>

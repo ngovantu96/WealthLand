@@ -31,7 +31,7 @@ class LandController extends Controller
         return view('home.land.create',compact('categories','users'));
     }
 
-    public function store(Request $request){
+    public function store(LandRequest $request){
         $this->landRepository->create($request);
         return  redirect()->route('land.list')->with('add','Add successful !!!');
     }
@@ -43,7 +43,7 @@ class LandController extends Controller
         return view('home.land.edit',compact('land','categories','users'));
     }
 
-    public function update(Request $request,$id){
+    public function update(LandRequest $request,$id){
         $land = $this->landRepository->findById($id);
         $this->landRepository->update($request, $land);
         return  redirect()->route('land.list')->with('update','Update successful !!!');

@@ -13,24 +13,34 @@
                     <div class="form-group">
                         <label for="title">Tiêu Đề</label>
                         <input type="text" class="form-control" name="title" id="name" placeholder="nhập tiêu đề">
+                        @error('title')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div class="form-group">
                         <label for="content">Nội Dung</label>
                         <textarea  id="" cols="70" rows="5" name="content"></textarea>
-
+                        @error('content')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div class="form-group">
                         <label for="sologan">Phương Châm</label>
                         <textarea  id="" cols="70" rows="5" name="sologan"></textarea>
-
+                        @error('sologan')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="form-group">
                         <label for="description">Mô tả</label>
                         <textarea class="ckeditor" id="ckeditor" name="description"></textarea>
+                        @error('description')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <button type="submit" class="btn btn-primary">Lưu</button>
