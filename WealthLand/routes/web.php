@@ -43,7 +43,7 @@ use Spatie\Permission\Models\Permission;
 //})->name('page.index');
 //web
 
-Route::prefix('/wealthlan')->group(function(){
+Route::prefix('/wealthland')->group(function(){
     Route::get('/',[PageController::class,'index'])->name('page.index');
     Route::post('/lien-he',[PageController::class,'store'])->name('contact.create');
     Route::get('/tin-tuc',[PageController::class,'post'])->name('post.index');
@@ -58,10 +58,6 @@ Route::prefix('/wealthlan')->group(function(){
 
     Route::post('/ket-qua-tim-kiem',[PageController::class,'search'])->name('search');
 
-//     Route::get('wealthalnd',function(){
-//         $listData = Land::all();
-//         return response()->json($listData);
-//     });
 });
 
 
