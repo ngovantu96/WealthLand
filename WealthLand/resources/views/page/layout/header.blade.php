@@ -2,7 +2,7 @@
 <!-- Nav Bar Start -->
 <div class="navbar navbar-expand-lg bg-dark navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="{{ asset('font_end/img/logo.png') }}" alt="" class="logo"></a>
+        <a class="navbar-brand" href="#"><img src="{{ asset('font_end/img/Logo.png') }}" alt="" class="logo"></a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>

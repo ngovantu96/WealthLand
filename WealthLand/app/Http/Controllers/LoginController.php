@@ -14,7 +14,7 @@ class LoginController extends Controller
 
     public function checkLogin(Request $request){
         $user = [
-            'email' => $request->email,
+            'email' => $request->username,
             'password' => $request->password,
          ];
          if (!Auth::attempt($user)) {

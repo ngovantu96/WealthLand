@@ -10,4 +10,6 @@ interface UserRepositoryInterface extends RepositoryInterface
     public function update($request, $obj);
 
     public function editPass($request,$obj);
+
+    public function getUser();
 }

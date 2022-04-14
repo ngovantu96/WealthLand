@@ -38,27 +38,23 @@ use Spatie\Permission\Models\Permission;
 
 //web
 
-//Route::get('wealthlan',function(){
-//    return view('page.index');
-//})->name('page.index');
-//web
 
-Route::prefix('/wealthland')->group(function(){
-    Route::get('/',[PageController::class,'index'])->name('page.index');
-    Route::post('/lien-he',[PageController::class,'store'])->name('contact.create');
-    Route::get('/tin-tuc',[PageController::class,'post'])->name('post.index');
-    Route::get('/doi-tac/{id}',[PageController::class,'partner'])->name('partner.index');
-    Route::get('/gioi-thieu',[IntroduceController::class,'Introduce'])->name('introduce.index');
-    Route::get('/lien-he',[ContactController::class,'contact'])->name('contact.index');
-    Route::get('/hinh-anh',[ImageController::class,'image'])->name('image.index');
-    Route::get('/loai-du-an/{id}',[PageController::class,'categoryland_detail'])->name('categoryland.detail');
-    Route::get('/tin-tuc/{id}',[PageController::class,'post_detail'])->name('post.detail');
+// Route::prefix('/wealthland')->group(function(){
+//     Route::get('/',[PageController::class,'index'])->name('page.index');
+//     Route::post('/lien-he',[PageController::class,'store'])->name('contact.create');
+//     Route::get('/tin-tuc',[PageController::class,'post'])->name('post.index');
+//     Route::get('/doi-tac/{id}',[PageController::class,'partner'])->name('partner.index');
+//     Route::get('/gioi-thieu',[IntroduceController::class,'Introduce'])->name('introduce.index');
+//     Route::get('/lien-he',[ContactController::class,'contact'])->name('contact.index');
+//     Route::get('/hinh-anh',[ImageController::class,'image'])->name('image.index');
+//     Route::get('/loai-du-an/{id}',[PageController::class,'categoryland_detail'])->name('categoryland.detail');
+//     Route::get('/tin-tuc/{id}',[PageController::class,'post_detail'])->name('post.detail');
 
-    Route::post('/dang-ki-tu-van',[ContactController::class,'store'])->name('contact.store');
+//     Route::post('/dang-ki-tu-van',[ContactController::class,'store'])->name('contact.store');
 
-    Route::post('/ket-qua-tim-kiem',[PageController::class,'search'])->name('search');
+//     Route::post('/ket-qua-tim-kiem',[PageController::class,'search'])->name('search');
 
-});
+// });
 
 
 // Route::get('/', [HomeController::class,'index'])->name('admin');
@@ -67,17 +63,21 @@ Route::post('/login', [LoginController::class,'checkLogin'])->name('checklogin')
 Route::get('/logout', [LoginController::class,'logout'])->name('logout');
 
 // user
-Route::middleware('auth')->prefix('admin')->group(function(){
-    Route::get('/',[HomeController::class,'index'])->name('admin.index');
+ Route::middleware('auth')->prefix('admin')->group(function(){
+    Route::get('/home',[HomeController::class,'index'])->name('admin.index');
+    Route::get('/home/create/user',[UserController::class,'createUser']);
+    Route::get('/user/customer',[UserController::class,'userGetCustomer'])->name('user.get-list');
 
 Route::prefix('/user')->group(function(){
-    Route::get('/',[UserController::class,'index'])->name('user.list');
+    Route::get('/user/list',[UserController::class,'getUser'])->name('user.getUsers');
+    Route::get('/users',[UserController::class,'index'])->name('user.list');
     Route::get('/create',[UserController::class,'formCreate'])->name('user.create');
     Route::post('/store',[UserController::class,'store'])->name('user.store');
     Route::get('/edit/{id}',[UserController::class,'edit'])->name('user.edit');
     Route::post('/update/{id}',[UserController::class,'update'])->name('user.update');
     Route::post('/update-password/{id}',[UserController::class,'editPass'])->name('user.edit-pass');
     Route::get('/delete/{id}',[UserController::class,'delete'])->name('user.delete');
+
 });
 
 // categoryland
@@ -156,5 +156,8 @@ Route::prefix('/image')->group(function(){
     Route::get('/delete/{id}',[ImageController::class,'delete'])->name('image.delete');
 });
 
-});
+ });
+
+
+
 

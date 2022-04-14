@@ -35,7 +35,7 @@ class PostController extends Controller
     }
     public function update(PostRequest $request, $id){
         $post = $this->postRepo->findById($id);
-        $this->postRepo->update($request,$id);
+        $this->postRepo->update($request,$post);
         return redirect()->route('post.index')->with('update','Update successful !!!');
     }
 

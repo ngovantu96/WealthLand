@@ -1,41 +1,59 @@
-@extends('home.master')
-@section('page-title','Danh Sách Nguoi Dung')
-@section('content')
-<div class="contaner ml-2">
-    <h1>Danh Sách</h1>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>laravel datatables pagination with search and sort - nicesnippets.com</title>
+    <!-- Datatables CSS CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha256-aAr2Zpq8MZ+YA/D6JtRD3xtrwpEz2IqOS+pWD/7XKIw=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha256-OFRAJNoaD8L3Br5lglV7VyLRf0itmoBzWUoM+Sji4/8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
 
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<a href="{{route('user.create')}}" class="btn btn-primary" >
-    CREATE +
-  </a>
+    <!-- Datatables JS CDN -->
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header bg-info text-white">Laravel Datatables Pagination with Search and Sort - NiceSnippets.com</div>
+                    <div class="card-body">
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+                        <table id='empTable' width='100%' border="1" style='border-collapse: collapse;'>
+                            <thead>
+                                <tr>
+                                    <td>S.no</td>
+                                    <td>Name</td>
+                                    <td>Email</td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function(){
 
-
-<table class="table table-bordered">
-    <thead>
-        <tr>
-          <th scope="col">STT</th>
-          <th scope="col">Tên</th>
-          <th scope="col">Email</th>
-          <th scope="col">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-      @foreach($users as $key=>$user)
-        <tr>
-            <td>{{ ++$key }}</td>
-          <td scope="row">{{ $user->name }}</td>
-          <td scope="row">{{ $user->email }}</td>
-          <td>
-              <a href="{{ route('user.edit',$user->id) }}" ><i class="far fa-edit btn btn-warning"></i></a> ||
-              <a href="{{ route('user.delete',$user->id) }}"><i class="far fa-trash-alt ml-2 btn btn-danger"></i></a>
-          </td>
-        </tr>
-      @endforeach
-      </tbody>
-  </table>
-
-
-
-@endsection
-
+          // DataTable
+          $('#empTable').DataTable({
+             processing: true,
+             serverSide: true,
+             ajax: "{{route('user.getUsers')}}",
+             columns: [
+                { data: 'id' },
+                { data: 'name' },
+                { data: 'email' },
+             ]
+          });
+        });
+    </script>
+</body>
+</html>

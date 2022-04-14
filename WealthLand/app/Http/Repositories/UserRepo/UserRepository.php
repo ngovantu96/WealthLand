@@ -30,4 +30,8 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
         $obj->password = Hash::make($request->password);
         $obj->save();
     }
+
+   public function getUser(){
+       return $this->model->all();
+   }
 }
