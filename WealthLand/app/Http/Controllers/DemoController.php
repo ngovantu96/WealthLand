@@ -20,6 +20,7 @@ class DemoController extends Controller
  }
  public function deleted()
  {
-     
+
  }
+
 }
